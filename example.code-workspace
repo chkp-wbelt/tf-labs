@@ -1,0 +1,47 @@
+{
+	"folders": [
+		{
+			"name": "Azure Labs (github)",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/.terraform": true,
+			"**/*.tfstate": true,
+			"**/*.tfstate.*": true,
+			"**/.git": true,
+			"**/.gitignore": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true
+		},
+		"terminal.integrated.env.windows": {
+			"TF_PLUGIN_CACHE_DIR": "${env:APPDATA}/terraform.d/plugins",
+			"ARM_SUBSCRIPTION_ID": "YOUR-VALUE-HERE",
+			"ARM_TENANT_ID": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed
+			"ARM_CLIENT_ID": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed
+			"ARM_SAS_TOKEN": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed
+			"ARM_CLIENT_SECRET": "YOUR-VALUE-HERE" //depending on your security and delegation configuration this value may not be needed
+		},
+		"terminal.integrated.env.osx": {
+			"TF_PLUGIN_CACHE_DIR": "${env:HOME}/.terraform.d/plugins",
+			"ARM_SUBSCRIPTION_ID": "YOUR-VALUE-HERE",
+			"ARM_TENANT_ID": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed
+			"ARM_CLIENT_ID": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed
+			"ARM_SAS_TOKEN": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed
+			"ARM_CLIENT_SECRET": "YOUR-VALUE-HERE" //depending on your security and delegation configuration this value may not be needed
+		},
+		"terminal.integrated.env.linux": {
+			"TF_PLUGIN_CACHE_DIR": "${env:HOME}/.terraform.d/plugins",
+			"ARM_SUBSCRIPTION_ID": "YOUR-VALUE-HERE",
+			"ARM_TENANT_ID": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed
+			"ARM_CLIENT_ID": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed
+			"ARM_SAS_TOKEN": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed
+			"ARM_CLIENT_SECRET": "YOUR-VALUE-HERE" //depending on your security and delegation configuration this value may not be needed
+		},
+		"terminal.integrated.copyOnSelection": true,
+		"terminal.integrated.cwd": "${fileDirname}"
+	}
+}
