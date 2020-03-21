@@ -55,7 +55,6 @@ terraform {
 - (other directories) -- any other directory is just a location to hold Terraform files for a particular project, environment, test, etc, however you choose to categorize your scenarios and configurations.  For convenience it is recommended to symlink back to the main [init.tf](#init-file) if you wish to have some shared configurations.
 
 ```
-.
 ├── create-group
 │   └── main.tf
 ├── create-lab-networks
@@ -74,16 +73,12 @@ terraform {
 │   ├── create-chkp-gw
 │   │   ├── main.tf
 │   │   ├── outputs.tf
-│   │   ├── README.md
 │   │   └── variables.tf
 │   └── create-linux-vm
 │       ├── main.tf
 │       ├── outputs.tf
-│       ├── README.md
 │       └── variables.tf
 ├── example.code-workspace
 ├── init.tf
-├── mklinks.cmd
-└── README.md
+└── mklinks.cmd
 ```
-
