@@ -4,9 +4,8 @@ module "gw1" {
     offer = "check-point-cg-r8030"
     admin_password = "example-admin-pw!123"
     sic_password = "example-sic-pw!123"
-    private_external_ip = "10.50.200.10"
-    private_internal_ip = "10.50.203.10"
-
+    private_external_ip = cidrhost(data.terraform_remote_state.lab_network.outputs.external_subnet_range,10)
+    private_internal_ip = data.terraform_remote_state.lab_network.outputs.internal_gw_address
     tags = {
         Env = "lab"
         ServerCategory = "security"
@@ -19,8 +18,8 @@ module "gw2" {
     offer = "check-point-cg-r8040"
     admin_password = "example-admin-pw!123"
     sic_password = "example-sic-pw!123"
-    private_external_ip = "10.50.200.11"
-    private_internal_ip = "10.50.203.11"
+    private_external_ip = cidrhost(data.terraform_remote_state.lab_network.outputs.external_subnet_range,11)
+    private_internal_ip = cidrhost(data.terraform_remote_state.lab_network.outputs.internal_subnet_range,11)
     tags = {
         Env = "lab"
         ServerCategory = "security"
