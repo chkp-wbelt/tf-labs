@@ -19,6 +19,7 @@
 		},
 		"terminal.integrated.env.windows": {
 			"TF_PLUGIN_CACHE_DIR": "${env:APPDATA}/terraform.d/plugins",
+			"TF_VAR_ssh_key_data": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAq9fqOSxm/68ECr2B2Q7qE64+o4pouYjSUY+DssJkU86fx0bNVHOgN+KlTIYCCzJ9fjqF1yy5G0BihmgDJolzMdCk121YvnjZfCPhzal0BK2+gz2no4CiSV4oHhoX3/kf0B9Fp1LPu67n4sCI5+8SlwNvXdZuVBjWlDJSTmZfIZaBfiGWAJr+4xVuLwwh5Q79Fzp0k0WsJheE335DGBw== example@example-lab.com",
 			"ARM_SUBSCRIPTION_ID": "YOUR-VALUE-HERE",
 			"ARM_TENANT_ID": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed
 			"ARM_CLIENT_ID": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed
@@ -27,6 +28,7 @@
 		},
 		"terminal.integrated.env.osx": {
 			"TF_PLUGIN_CACHE_DIR": "${env:HOME}/.terraform.d/plugins",
+			"TF_VAR_ssh_key_data": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAq9fqOSxm/68ECr2B2Q7qE64+o4pouYjSUY+DssJkU86fx0bNVHOgN+KlTIYCCzJ9fjqF1yy5G0BihmgDJolzMdCk121YvnjZfCPhzal0BK2+gz2no4CiSV4oHhoX3/kf0B9Fp1LPu67n4sCI5+8SlwNvXdZuVBjWlDJSTmZfIZaBfiGWAJr+4xVuLwwh5Q79Fzp0k0WsJheE335DGBw== example@example-lab.com",
 			"ARM_SUBSCRIPTION_ID": "YOUR-VALUE-HERE",
 			"ARM_TENANT_ID": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed
 			"ARM_CLIENT_ID": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed
@@ -35,6 +37,7 @@
 		},
 		"terminal.integrated.env.linux": {
 			"TF_PLUGIN_CACHE_DIR": "${env:HOME}/.terraform.d/plugins",
+			"TF_VAR_ssh_key_data": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAq9fqOSxm/68ECr2B2Q7qE64+o4pouYjSUY+DssJkU86fx0bNVHOgN+KlTIYCCzJ9fjqF1yy5G0BihmgDJolzMdCk121YvnjZfCPhzal0BK2+gz2no4CiSV4oHhoX3/kf0B9Fp1LPu67n4sCI5+8SlwNvXdZuVBjWlDJSTmZfIZaBfiGWAJr+4xVuLwwh5Q79Fzp0k0WsJheE335DGBw== example@example-lab.com",
 			"ARM_SUBSCRIPTION_ID": "YOUR-VALUE-HERE",
 			"ARM_TENANT_ID": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed
 			"ARM_CLIENT_ID": "YOUR-VALUE-HERE", //depending on your security and delegation configuration this value may not be needed

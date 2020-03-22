@@ -33,7 +33,7 @@ module "db1" {
 ```
 ## Variables
 ```hcl
-- vm_name_prefix (string) The prefix used for the name of the virtual machine (default = "lab1")
+- vm_name (string) The name for the new virtual machine (default = "lab1")
 - vm_custom_data (string) Custom data passed to the vm (default = "")
 - vm_ssh_key_data (string) SSH key data passed to the vm (default = "")
 - vnet_name (string) vNet name used for the VM NIC interface (default = "lab-network")    

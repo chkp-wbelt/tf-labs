@@ -1,7 +1,7 @@
-variable "vm_name_prefix" {
+variable "vm_name" {
     type = string
     default = "lab1"
-    description = "The prefix used for the name of the virtual machine"
+    description = "The name for the new virtual machine"
 }
 variable "vm_custom_data" {
     type = string
@@ -10,7 +10,7 @@ variable "vm_custom_data" {
 }
 variable "vm_ssh_key_data" {
     type = string
-    description = "Custom data passed to the vm"
+    description = "ssh key data passed to the vm"
     default = ""
 }
 variable "vnet_name" {

@@ -11,7 +11,7 @@ data "azurerm_subnet" "subnet"   {
 }
 
 resource "azurerm_resource_group" "rg" {
-    name     = var.vm_name_prefix
+    name     = var.vm_name
     location = data.azurerm_virtual_network.vnet.location
     tags     = var.tags
 }
