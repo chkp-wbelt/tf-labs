@@ -2,34 +2,32 @@ resource "azurerm_resource_group" "rg" {
     name     = "lab-network"
     location = "East US"
 
-    tags = {
-        environment = "lab"
-    }
+    tags = var.tags
 }
 resource "azurerm_virtual_network" "vnet" {
     name                = azurerm_resource_group.rg.name
-    address_space       = [ "10.50.200.0/22" ]
+    address_space       = [ var.vnet_address_space ]
     location            = azurerm_resource_group.rg.location
 
     resource_group_name = azurerm_resource_group.rg.name
 }
 resource "azurerm_subnet" "external_subnet"  {
     name           = "external-subnet"
-    address_prefix = "10.50.200.0/24"
-
-    resource_group_name  = azurerm_resource_group.rg.name
-    virtual_network_name = azurerm_virtual_network.vnet.name
-}
-resource "azurerm_subnet" "internal_subnet"   {
-    name           = "internal-subnet"
-    address_prefix = "10.50.203.0/24"
+    address_prefix = cidrsubnets(azurerm_virtual_network.vnet.address_space[0],2,2,2,2)[0]
 
     resource_group_name  = azurerm_resource_group.rg.name
     virtual_network_name = azurerm_virtual_network.vnet.name
 }
 resource "azurerm_subnet" "dmz_subnet"  {
     name           = "dmz-subnet"
-    address_prefix = "10.50.201.0/24"
+    address_prefix = cidrsubnets(azurerm_virtual_network.vnet.address_space[0],2,2,2,2)[1]
+
+    resource_group_name  = azurerm_resource_group.rg.name
+    virtual_network_name = azurerm_virtual_network.vnet.name
+}
+resource "azurerm_subnet" "internal_subnet"   {
+    name           = "internal-subnet"
+    address_prefix = cidrsubnets(azurerm_virtual_network.vnet.address_space[0],2,2,2,2)[3]
 
     resource_group_name  = azurerm_resource_group.rg.name
     virtual_network_name = azurerm_virtual_network.vnet.name
@@ -41,17 +39,17 @@ resource "azurerm_route_table" "dmz_routes" {
 
     route {
         name           = "internal"
-        address_prefix = "10.50.200.0/22"
+        address_prefix = azurerm_virtual_network.vnet.address_space[0]
         next_hop_type  = "vnetlocal"
     }
     route {
         name           = "Internet"
         address_prefix = "0.0.0.0/0"
         next_hop_type  = "VirtualAppliance"
-        next_hop_in_ip_address = "10.50.201.10"
+        next_hop_in_ip_address = cidrhost(azurerm_subnet.dmz_subnet.address_prefix,10)
     }
 }
-resource "azurerm_subnet_route_table_association" "dmz_rt_ssociation" {
+resource "azurerm_subnet_route_table_association" "dmz_rt_association" {
     subnet_id      = azurerm_subnet.dmz_subnet.id
     route_table_id = azurerm_route_table.dmz_routes.id
 }
@@ -62,17 +60,17 @@ resource "azurerm_route_table" "internal_routes" {
 
     route {
         name           = "internal"
-        address_prefix = "10.50.200.0/22"
+        address_prefix = azurerm_virtual_network.vnet.address_space[0]
         next_hop_type  = "vnetlocal"
     }
     route {
         name           = "Internet"
         address_prefix = "0.0.0.0/0"
         next_hop_type  = "VirtualAppliance"
-        next_hop_in_ip_address = "10.50.203.10"
+        next_hop_in_ip_address = cidrhost(azurerm_subnet.internal_subnet.address_prefix,10)
     }
 }
-resource "azurerm_subnet_route_table_association" "internal_rt_ssociation" {
+resource "azurerm_subnet_route_table_association" "internal_rt_association" {
     subnet_id      = azurerm_subnet.internal_subnet.id
     route_table_id = azurerm_route_table.internal_routes.id
 }
