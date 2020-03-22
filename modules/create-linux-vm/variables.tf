@@ -3,6 +3,11 @@ variable "vm_name" {
     default = "lab1"
     description = "The name for the new virtual machine"
 }
+variable "vm_instance_size" {
+    type = string
+    description = "Azure VM instance size for virtual machines"
+    default = "Standard_B1ms" #cheapest instance size for basic vms
+}
 variable "vm_custom_data" {
     type = string
     description = "Custom data passed to the vm"

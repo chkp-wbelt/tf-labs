@@ -65,7 +65,7 @@ resource "azurerm_virtual_machine" "gw" {
     network_interface_ids = [azurerm_network_interface.gw_external.id,azurerm_network_interface.gw_internal.id]
     primary_network_interface_id = azurerm_network_interface.gw_external.id
     tags                         = var.tags
-    vm_size               = "Standard_D2_v3"
+    vm_size               = var.gw_instance_size
     
     depends_on = [azurerm_marketplace_agreement.checkpoint]
 

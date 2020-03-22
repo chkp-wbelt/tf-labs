@@ -34,6 +34,7 @@ module "db1" {
 ## Variables
 ```hcl
 - vm_name (string) The name for the new virtual machine (default = "lab1")
+- vm_instance_size (string) Azure VM instance size for virtual machines (default = "Standard_B1ms")
 - vm_custom_data (string) Custom data passed to the vm (default = "")
 - vm_ssh_key_data (string) SSH key data passed to the vm (default = "")
 - vnet_name (string) vNet name used for the VM NIC interface (default = "lab-network")    

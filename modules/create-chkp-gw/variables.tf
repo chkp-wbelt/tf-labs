@@ -3,6 +3,11 @@ variable "gw_name" {
     default = "gwtest1"
     description = "The name for the new gateway / virtual machine"
 }
+variable "gw_instance_size" {
+    type = string
+    description = "Azure VM instance size for gateways"
+    default = "Standard_D2_v3" #cheapest minimum gateway size (two nics)
+}
 variable "offer" {
     type = string
     default = "check-point-cg-r8040"

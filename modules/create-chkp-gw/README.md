@@ -50,6 +50,7 @@ module "gw2" {
 ## Variables
 ```hcl
 - gw_name (string) The name for the new gateway / virtual machine (default = "gwtest1")
+- gw_instance_size (string) Azure VM instance size for gateways (default = "Standard_D2_v3")
 - offer (string) Azure Marketplace offer string to use for gateway image (default = "check-point-cg-r8040")
 - admin_password (string) Password for the admin user (default = "anythingSECURE")
 - sic_password (string) Password for SIC to the gateway (default = "moreSECURITY")
