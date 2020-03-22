@@ -23,9 +23,9 @@ You can specify what address space to use with the variable `vnet_address_space`
 - internal_subnet (10.50.203.0/24)
 
 ### DMZ and Internal Route Tables
-- `route_table_appliance_ip` setting is used to specify the last octect for a virtual appliance on the dmz and internal subnets, it defaults to 10.
+- `route_table_appliance_ip` setting is used to specify the last octet for a virtual appliance on the dmz and internal subnets, it defaults to 10.
 - dmz and internal route tables and associations with local vnet traffic staying within vnet but all internet traffic routed to a virtual appliance on `route_table_appliance_ip` IP
-- For example, the DMZ route table has an entry saying all internet traffic is routed to the virtual appliance on 10.50.201.10.
+- For example, the DMZ route table has an entry directing all internet traffic to the virtual appliance at 10.50.201.10
 
 ### Terraform Outputs (used with [terraform_remote_state](https://www.terraform.io/docs/providers/terraform/d/remote_state.html))
 ```
