@@ -1,4 +1,4 @@
-# Check Point and Terraform Labs using Azure
+# Check Point and Azure Labs using Terraform
 Variety of lab scenarios using Terraform and Azure
 
 ## IMPORTANT: Azure Security Configuration
