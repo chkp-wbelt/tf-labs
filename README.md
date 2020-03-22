@@ -46,8 +46,8 @@ terraform {
 ```
 ## mklinks
 
-- `mklinks.cmd`-- Windows CMD file for creating symlinks for the example directories
-- `mklinks.sh` -- Future enhancement, contributions welcome!
+- `mklinks.cmd`-- Windows CMD file for creating symlinks for the example lab directories
+- `mklinks.sh` -- Linux/Mac shell script for creating symlinks for the example lab directories
 
 ### Directories
 - root -- [init.tf](#init-file), [mklinks](#mklinks), `README.md`
@@ -74,11 +74,12 @@ terraform {
 │   │   ├── main.tf
 │   │   ├── outputs.tf
 │   │   └── variables.tf
-│   ├── create-linux-vm
-│   │   ├── main.tf
-│   │   ├── outputs.tf
-│   │   └── variables.tf
+│   └── create-linux-vm
+│       ├── main.tf
+│       ├── outputs.tf
+│       └── variables.tf
 ├── example.code-workspace
 ├── init.tf
-└── mklinks.cmd
+├── mklinks.cmd
+└── mklinks.sh
 ```
