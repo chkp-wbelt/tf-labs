@@ -90,11 +90,7 @@ resource "azurerm_virtual_machine" "gw" {
         computer_name  = azurerm_resource_group.rg.name
         admin_username = "notused" #admin will still be the username
         admin_password = var.admin_password
-        custom_data = <<EOF
-        #!/bin/bash
-        config_system -s 'hostname=${azurerm_resource_group.rg.name}&ftw_sic_key=${var.sic_password}&install_security_gw=true&install_ppak=true&gateway_daip=false&gateway_cluster_member=false&install_security_managment=false&download_info=true&upload_info=true'
-        shutdown -r now
-        EOF
+        custom_data = "#!/bin/bash\n/bin/config_system.orig --config-string 'hostname=${azurerm_resource_group.rg.name}&ftw_sic_key=${var.sic_password}&install_security_gw=true&install_ppak=true&gateway_daip=false&gateway_cluster_member=false&install_security_managment=false&download_info=true&upload_info=true'\nshutdown -r now\n"
     }
     os_profile_linux_config {
         disable_password_authentication = false
