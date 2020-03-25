@@ -37,5 +37,7 @@ external_subnet_range = 10.50.200.0/24
 internal_gw_address = 10.50.203.10
 internal_subnet_name = internal-subnet
 internal_subnet_range = 10.50.203.0/24
+storage_name = labstorage813
+storage_rg = lab-storage
 vnet_address_space = 10.50.200.0/22
 ```

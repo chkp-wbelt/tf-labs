@@ -8,7 +8,7 @@ terraform {
     key                  = "lab-environment.tfstate"
   }
 }
-data "terraform_remote_state" "lab_network" {
+data "terraform_remote_state" "lab_core" {
     backend = "azurerm"
 
     config = {
