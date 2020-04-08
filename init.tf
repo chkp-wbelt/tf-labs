@@ -1,5 +1,6 @@
 provider "azurerm" {
-    version = "~> 1.44.0"
+  version = "~>2"
+  features { }
 }
 terraform {
   backend "azurerm" {
@@ -8,7 +9,7 @@ terraform {
     key                  = "lab-environment.tfstate"
   }
 }
-data "terraform_remote_state" "lab_core" {
+data "terraform_remote_state" "lab_network" {
     backend = "azurerm"
 
     config = {

@@ -4,8 +4,8 @@ module "sftp" {
     sftp_username = "example-user"
     sftp_password = "example-password"
     storage_size = 50
-    storage_name = data.terraform_remote_state.lab_core.outputs.storage_name
-    storage_rg = data.terraform_remote_state.lab_core.outputs.storage_rg
+    storage_name = data.terraform_remote_state.lab_network.outputs.storage_name
+    storage_rg = data.terraform_remote_state.lab_network.outputs.storage_rg
     tags = {
         Env = "lab"
         ServerCategory = "utility"

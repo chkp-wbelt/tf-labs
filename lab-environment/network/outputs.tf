@@ -34,11 +34,3 @@ output "dmz_gw_address" {
   value = cidrhost(azurerm_subnet.dmz_subnet.address_prefix,10)
   description = "Internal gateway address"
 }
-output "storage_name" {
-  value = azurerm_storage_account.storage.name
-  description = "Storage account name"
-}
-output "storage_rg" {
-  value = azurerm_storage_account.storage.resource_group_name
-  description = "Storage account resource group"
-}

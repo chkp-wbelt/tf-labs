@@ -1,16 +1,13 @@
 locals {
   prefix = "lab"
   location = "East US"
-  storage_suffix = "storage813"
-}
-resource "azurerm_resource_group" "storage" {
-    name     = "${local.prefix}-storage"
-    location = local.location
-    tags = var.tags
+  tags = {
+    Env = "lab"
+  }
 }
 resource "azurerm_resource_group" "net" {
     name     = "${local.prefix}-network"
-    location = azurerm_resource_group.storage.location
+    location = local.location
     tags = var.tags
 }
 resource "azurerm_virtual_network" "vnet" {
@@ -81,13 +78,4 @@ resource "azurerm_route_table" "internal_routes" {
 resource "azurerm_subnet_route_table_association" "internal_rt_association" {
     subnet_id      = azurerm_subnet.internal_subnet.id
     route_table_id = azurerm_route_table.internal_routes.id
-}
-resource "azurerm_storage_account" "storage" {
-  name                = local.storage_name
-  location = azurerm_resource_group.storage.location
-  resource_group_name = azurerm_resource_group.storage.name
-  account_tier = "Standard"
-  account_replication_type = "LRS"
-  account_kind = "StorageV2"
-  enable_https_traffic_only = "true"
 }
