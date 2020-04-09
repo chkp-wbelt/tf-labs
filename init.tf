@@ -2,20 +2,23 @@ provider "azurerm" {
   version = "~>2"
   features { }
 }
+locals {
+  network_workspace_name = "lab-network" //TODO: Update for the workspace network was run in
+}
 terraform {
   backend "azurerm" {
-    storage_account_name = "labstorage813"
+    storage_account_name = "labstorage813" //TODO: Update for your storage account name
     container_name       = "lab-terraform"
     key                  = "lab-environment.tfstate"
   }
 }
-data "terraform_remote_state" "lab_network" {
+data "terraform_remote_state" "network" {
     backend = "azurerm"
 
     config = {
-      storage_account_name = "labstorage813"
+      storage_account_name = "labstorage813" //TODO: Update for your storage account name
       container_name       = "lab-terraform"
-      key                  = "lab-environment.tfstateenv:lab-network"
+      key                  = "lab-environment.tfstateenv:${local.network_workspace_name}"
     }
 }
 variable "ssh_key_data" {

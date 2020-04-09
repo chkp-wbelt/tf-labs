@@ -9,7 +9,7 @@ module "web1" {
       - "curl -s ${var.bootstrap_url}/apt-web-server.sh | bash"
     EOT
     assign_public_ip = true
-    subnet_name = data.terraform_remote_state.lab_network.outputs.external_subnet_name
+    subnet_name = data.terraform_remote_state.network.outputs.external_subnet_name
     tags = {
         Env = "lab"
         ServerCategory = "web"
@@ -27,7 +27,7 @@ module "web2" {
       - "curl -s ${var.bootstrap_url}/apt-install-dvwa.sh | bash"
     EOT
     assign_public_ip = true
-    subnet_name = data.terraform_remote_state.lab_network.outputs.external_subnet_name
+    subnet_name = data.terraform_remote_state.network.outputs.external_subnet_name
     tags = {
         Env = "lab"
         ServerCategory = "web"
@@ -44,7 +44,7 @@ module "db1" {
       - "curl -s ${var.bootstrap_url}/apt-db-server.sh | bash"
     EOT
     assign_public_ip = false
-    subnet_name = data.terraform_remote_state.lab_network.outputs.internal_subnet_name
+    subnet_name = data.terraform_remote_state.network.outputs.internal_subnet_name
     tags = {
         Env = "lab"
         ServerCategory = "db"
