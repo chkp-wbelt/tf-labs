@@ -6,7 +6,7 @@ variable "gw_name" {
 variable "gw_instance_size" {
     type = string
     description = "Azure VM instance size for gateways"
-    default = "Standard_D2a_v4" #cheapest minimum gateway size (two nics)
+    default = "Standard_D2_v3" #cheapest minimum gateway size (two nics)
 }
 variable "offer" {
     type = string

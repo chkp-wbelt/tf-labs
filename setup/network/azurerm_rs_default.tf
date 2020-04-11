@@ -1,0 +1,1 @@
+../../common/azurerm_rs_default.tf

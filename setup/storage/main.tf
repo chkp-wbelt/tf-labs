@@ -6,10 +6,6 @@ locals {
     Env = "lab" //TODO: Update for your configuration
   }
 }
-provider "azurerm" {
-  version = "~>1"
-  features { }
-}
 resource "azurerm_resource_group" "storage" {
   name                      = "${local.prefix}-storage"
   location                  = local.location
@@ -24,6 +20,11 @@ resource "azurerm_storage_account" "storage" {
   account_kind              = "StorageV2"
   enable_https_traffic_only = "true"
   tags                      = local.tags
+}
+resource "azurerm_storage_container" "container" {
+  name                  = "terraform"
+  container_access_type = "private"
+  storage_account_name  = azurerm_storage_account.storage.name
 }
 data "azurerm_storage_account_sas" "apisas" {
   connection_string = azurerm_storage_account.storage.primary_connection_string

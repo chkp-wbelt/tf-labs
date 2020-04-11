@@ -1,6 +1,6 @@
 variable "vnet_address_space" {
     type = string
-    default = "10.50.200.0/22"
+    default = ""
     description = "Address space for the vnet"
 }
 variable "route_table_appliance_ip" {
