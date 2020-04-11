@@ -7,6 +7,3 @@
 
 # Crash log files
 crash.log
-
-# Init symlinks
-**/*/init.tf
