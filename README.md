@@ -21,3 +21,15 @@ There are two parts of the lab configuration which require additional security s
    1. Update the values for your Azure Security Configuration
    1. Save or rename file to your preference
 1. Open new workspace file in Visual Studio Code
+1. Change to the storage setup directory
+    `cd setup/storage`
+1. Run storage configuration
+    `terraform init`
+    `terraform plan`
+    `terraform apply`
+1. Run environment configuration
+1. Run network configuration
+    `terraform init`
+    `terraform plan -var="vnet_address_space=10.50.200.0/22"`
+    `terraform apply -var="vnet_address_space=10.50.200.0/22"`
+
