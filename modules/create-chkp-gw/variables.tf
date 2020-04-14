@@ -25,13 +25,13 @@ variable "sic_password" {
 }
 variable "vnet_name" {
     type = string
-    default = "lab-network"
+    default = ""
     description = "vNet name used for the VM NIC interface"
 }
-variable "vnet_resource_group" {
+variable "vnet_resource_group_name" {
     type = string
-    default = "lab-network"
-    description = "Resource group for the vNet used for the VM NIC interface"
+    default = ""
+    description = "Resource group name for the vNet used for the VM NIC interface"
 }
 variable "private_external_ip" {
     type = string

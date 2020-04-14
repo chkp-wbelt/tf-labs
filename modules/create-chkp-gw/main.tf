@@ -5,7 +5,7 @@ resource "azurerm_marketplace_agreement" "checkpoint" {
 }
 data "azurerm_virtual_network" "vnet" {
     name                = var.vnet_name
-    resource_group_name = var.vnet_resource_group
+    resource_group_name = var.vnet_resource_group_name
 }
 resource "azurerm_resource_group" "rg" {
     name     = var.gw_name

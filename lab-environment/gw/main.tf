@@ -4,6 +4,8 @@ module "gw1" {
     offer = "check-point-cg-r8030"
     admin_password = "example-admin-pw!123"
     sic_password = "example-sic-pw!123"
+    vnet_name = data.terraform_remote_state.network.outputs.vnet_name
+    vnet_resource_group_name = data.terraform_remote_state.network.outputs.vnet_resource_group_name
     private_external_ip = cidrhost(data.terraform_remote_state.network.outputs.external_subnet_range,10)
     private_internal_ip = data.terraform_remote_state.network.outputs.internal_gw_address
     tags = {
@@ -18,6 +20,8 @@ module "gw2" {
     offer = "check-point-cg-r8040"
     admin_password = "example-admin-pw!123"
     sic_password = "example-sic-pw!123"
+    vnet_name = data.terraform_remote_state.network.outputs.vnet_name
+    vnet_resource_group_name = data.terraform_remote_state.network.outputs.vnet_resource_group_name
     private_external_ip = cidrhost(data.terraform_remote_state.network.outputs.external_subnet_range,11)
     private_internal_ip = cidrhost(data.terraform_remote_state.network.outputs.internal_subnet_range,11)
     tags = {

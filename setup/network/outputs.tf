@@ -1,3 +1,11 @@
+output "vnet_name" {
+  value = azurerm_resource_group.net.name
+  description = "Name of the vnet"
+}
+output "vnet_resource_group_name" {
+  value = azurerm_virtual_network.vnet.name
+  description = "Name of the vnet resource group"
+}
 output "vnet_address_space" {
   value = var.vnet_address_space
   description = "Address space for the vnet"
